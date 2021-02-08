@@ -1,0 +1,19 @@
+﻿<Window x:Class="TDDD49.Views.DialogBox"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TDDD49.Views"
+        mc:Ignorable="d"
+        Title="DialogBox" Height="255.338" Width="385.393">
+    <Window.Resources>
+        <BooleanToVisibilityConverter x:Key="BoolToVis" />
+    </Window.Resources>
+    <Grid Margin="0,0,2,-2">
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="129,110,0,0" TextWrapping="Wrap" Text="{Binding Username, Mode=OneWayToSource}" VerticalAlignment="Top" Width="120"/>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="129,149,0,0" Command="{Binding SetUsernameCommand}" VerticalAlignment="Top" Width="75" Height="22"/>
+        <Label Content="Useless username" HorizontalAlignment="Left" Margin="129,79,0,0" VerticalAlignment="Top"/>
+        <Label Content="Pick a usernam little cunt"  Visibility="{Binding UsernameWarningVisible, Converter={StaticResource BoolToVis}, Mode=OneWay}" HorizontalAlignment="Left" Margin="129,48,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.488,0.572" Foreground="Red" Height="26" Width="88"/>
+
+    </Grid>
+</Window>

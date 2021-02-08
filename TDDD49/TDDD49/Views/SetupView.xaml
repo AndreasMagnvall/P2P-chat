@@ -1,0 +1,34 @@
+﻿<UserControl x:Class="TDDD49.Views.SetupView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:TDDD49.Views"
+      xmlns:vm="clr-namespace:TDDD49.ViewModels"
+      mc:Ignorable="d"
+      d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <BooleanToVisibilityConverter x:Key="BoolToVis" />
+    </UserControl.Resources>
+    <!--
+          <vm:SetupViewModel x:Key="SetupViewModel" />
+    <UserControl.DataContext>
+        <vm:SetupViewModel/>
+    </UserControl.DataContext>-->
+    <!--DataContext="{Binding Source={StaticResource SetupViewModel}}"-->
+    <Grid>
+        <Grid Margin="0,0,0,10">
+            <Button Content="Connect" HorizontalAlignment="Left" Margin="30,317,0,0" VerticalAlignment="Top" Width="120" Command="{Binding PerformClientInitializationCommand}" RenderTransformOrigin="0.506,0.55" Height="75"/>
+            <TextBox x:Name="ip_textbox" HorizontalAlignment="Left" Height="23" Margin="30,204,0,0" TextWrapping="Wrap" Text="{Binding IpTextbox, Mode=OneWayToSource}" VerticalAlignment="Top" Width="120"/>
+            <TextBox x:Name="port_textbox" HorizontalAlignment="Left" Height="23" Margin="30,278,0,0" TextWrapping="Wrap" Text="{Binding RequestPortTextbox, Mode=OneWayToSource}" VerticalAlignment="Top" Width="120"/>
+            <TextBox x:Name="server_port_textbox" HorizontalAlignment="Left" Height="23" Margin="30,106,0,0" TextWrapping="Wrap" Text="{Binding ServerPortTextbox, Mode=OneWayToSource}" VerticalAlignment="Top" Width="120"/>
+            <Label Content="Destination port" HorizontalAlignment="Left" Margin="30,247,0,0" VerticalAlignment="Top" Width="109"/>
+            <Label Content="Destination ip" HorizontalAlignment="Left" Margin="30,178,0,0" VerticalAlignment="Top"/>
+            <Label Content="Server port" HorizontalAlignment="Left" Margin="30,75,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.533,0.578"/>
+            <Label Content="IS CONNECTED" HorizontalAlignment="Left" Margin="30,152,0,0" VerticalAlignment="Top" Visibility="{Binding IsConnected, Converter={StaticResource BoolToVis}, Mode=OneWay}"/>
+            <Button Content="View Previous conversations"  Command="{Binding ViewPreviousChatsCommand}" HorizontalAlignment="Left" Margin="349,178,0,0" VerticalAlignment="Top" Width="250" Height="115"/>
+
+        </Grid>
+        <Button  IsEnabled="{Binding StartServerButtonEnabled}"  Content="Start listening" HorizontalAlignment="Left" Margin="25,52,0,0" VerticalAlignment="Top" Width="75" Command="{Binding StartServerCommand}" Background="Red" Foreground="#FF0068FF"/>
+    </Grid>
+</UserControl>
